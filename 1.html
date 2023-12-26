@@ -1,5 +1,15 @@
 <html>
-  <body>
+  <script>
+    function bodyOnLoad() {
+      alert('bodyOnLoad()')
+
+      const params = new URLSearchParams(window.location.search)
+
+      document.getElementById('params').innerText = params
+    }
+  </script>
+  <body onload="bodyOnload">
     <button onclick="window.location.href='co.visme.mobile://'">bbb</button>
+    <div id="params"></div>
   </body>
 </html>
