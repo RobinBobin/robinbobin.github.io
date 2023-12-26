@@ -1,13 +1,16 @@
+<!DOCTYPE html>
 <html>
-  <script>
-    function bodyOnLoad() {
-      alert('bodyOnLoad()')
+  <head>
+    <script>
+      function bodyOnLoad() {
+        alert('bodyOnLoad()')
 
-      const params = new URLSearchParams(window.location.search)
+        const params = new URLSearchParams(window.location.search)
 
-      document.getElementById('params').innerText = params
-    }
-  </script>
+        document.getElementById('params').innerText = params
+      }
+    </script>
+  </head>
   <body onload="bodyOnload()">
     <button onclick="window.location.href='co.visme.mobile://'">bbb</button>
     <div id="params"></div>
