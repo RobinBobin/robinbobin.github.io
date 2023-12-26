@@ -11,6 +11,8 @@
         const params = new URLSearchParams(window.location.search)
 
         document.getElementById('params').innerText = params
+
+        window.location.href=`co.visme.mobile://${params}`
       }
     </script>
   </head>
