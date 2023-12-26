@@ -6,9 +6,13 @@
     <meta http-equiv='pragma' content='no-cache'>
     <script>
       function bodyOnLoad() {
-        document.getElementById('params').innerText = window.location.search
+        alert('bodyOnLoad()')
 
-        window.location.replace(`https://google.com/${window.location.search}`)
+        const params = new URLSearchParams(window.location.search)
+
+        document.getElementById('params').innerText = params
+
+        window.location.replace(`co.visme.mobile://${params}`)
       }
     </script>
   </head>
