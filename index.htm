@@ -6,9 +6,14 @@
     <meta http-equiv='pragma' content='no-cache'>
     <script>
       function bodyOnLoad() {
-        window.location.href = `co.visme.mobile://${window.location.search}`
-
         document.getElementById('params').innerText = window.location.search
+
+        const params = new URLSearchParams(window.location.search)
+
+        const backwardUri = params.get('backwardUri')
+        params.delete('backwardUri')
+
+        window.location.href = `${backwardUri}${params}`
       }
     </script>
   </head>
