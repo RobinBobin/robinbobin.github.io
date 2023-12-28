@@ -13,7 +13,11 @@
         const backwardUri = params.get('backwardUri')
         params.delete('backwardUri')
 
-        window.location.href = `${backwardUri}${params}`
+        const href = `${backwardUri}${params}`
+
+        alert(href)
+
+        window.location.href = href
       }
     </script>
   </head>
