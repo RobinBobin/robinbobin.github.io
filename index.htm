@@ -9,14 +9,15 @@
         document.getElementById('params').innerText = window.location.search
 
         const params = new URLSearchParams(window.location.search)
+
         const backwardUri = params.get('backwardUri')
-        const href = `${backwardUri}/oauthredirect/?${params}`
+        params.delete('backwardUri')
+
+        const href = `${backwardUri}/?${params}`
 
         alert(href)
 
         if (backwardUri) {
-          params.delete('backwardUri')
-
           window.location.href = href
         }
       }
