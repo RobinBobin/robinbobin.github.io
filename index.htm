@@ -7,9 +7,12 @@
     <script>
       function bodyOnLoad() {
         window.location.href = `co.visme.mobile://${window.location.search}`
+
+        document.getElementById('params').innerText = window.location.search
       }
     </script>
   </head>
   <body onload="bodyOnLoad()">
+    <div id="params"></div>
   </body>
 </html>
