@@ -11,9 +11,11 @@
         const params = new URLSearchParams(window.location.search)
         const backwardUri = params.get('backwardUri')
 
-        params.delete('backwardUri')
+        if (backwardUri) {
+          params.delete('backwardUri')
 
-        window.location.href = `${backwardUri}/oauthredirect/?${params}`
+          window.location.href = `${backwardUri}/oauthredirect/?${params}`
+        }
       }
     </script>
   </head>
