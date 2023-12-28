@@ -13,11 +13,13 @@
         const backwardUri = params.get('backwardUri')
         params.delete('backwardUri')
 
-        const href = `${backwardUri}${params}`
+        const href = `${backwardUri}?${params}`
 
         alert(href)
 
-        window.location.href = href
+        if (href) {
+          window.location.href = href
+        }
       }
     </script>
   </head>
