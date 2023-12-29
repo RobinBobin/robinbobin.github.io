@@ -6,16 +6,20 @@
     <meta http-equiv='pragma' content='no-cache'>
     <script>
       function bodyOnLoad() {
-        document.getElementById('params').innerText = window.location.search
+        document.getElementById('search').innerText = window.location.search
 
-        const params = new URLSearchParams(window.location.search)
+        const searchParams = new URLSearchParams(window.location.search)
 
-        const backwardUri = params.get('backwardUri')
-        params.delete('backwardUri')
+        const { backwardUri, shouldAlert } = ['backwardUri', 'shouldAlert'].reduce((previous, current) => {
+          previous[current] = searchParams.get(current)
+          searchParams.delete(current)
+        }, {})
 
-        const href = `${backwardUri}/oauthredirect/?${params}`
+        const href = `${backwardUri}/oauthredirect/?${searchParams}`
 
-        alert(href)
+        if (shouldAlert) {
+          alert(href)
+        }
 
         if (backwardUri) {
           window.location.href = href
@@ -24,6 +28,6 @@
     </script>
   </head>
   <body onload="bodyOnLoad()">
-    <div id="params"></div>
+    <div id="search"></div>
   </body>
 </html>
