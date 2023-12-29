@@ -11,9 +11,15 @@
         const searchParams = new URLSearchParams(window.location.search)
 
         const { backwardUri, shouldAlert } = ['backwardUri', 'shouldAlert'].reduce((previous, current) => {
-          previous[current] = searchParams.get(current)
-          alert(`${current}: ${previous[current]}`)
+          let value = searchParams.get(current)
           searchParams.delete(current)
+
+          if (/true|false/.test(value)) {
+            value = value === 'true'
+          }
+
+          previous[current] = value
+
           return previous
         }, {})
 
