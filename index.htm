@@ -12,6 +12,7 @@
 
         const { backwardUri, shouldAlert } = ['backwardUri', 'shouldAlert'].reduce((previous, current) => {
           previous[current] = searchParams.get(current)
+          alert(`${current}: ${previous[current]}`)
           searchParams.delete(current)
           return previous
         }, {})
